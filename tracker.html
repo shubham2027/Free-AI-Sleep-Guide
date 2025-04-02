@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Tracker | SleepWell</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="main.js" defer></script>
+</head>
+<body class="bg-slate-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="gradient-bg text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                    <span class="text-xl font-bold">SleepWell</span>
+                </a>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="recommendations.html" class="hover:text-purple-200">Sleep Recommendations</a>
+                <a href="techniques.html" class="hover:text-purple-200">Relaxation Techniques</a>
+                <a href="tracker.html" class="hover:text-purple-200 font-semibold">Sleep Tracker</a>
+                <a href="about.html" class="hover:text-purple-200">About</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="recommendations.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-indigo-700">Sleep Recommendations</a>
+                <a href="techniques.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-indigo-700">Relaxation Techniques</a>
+                <a href="tracker.html" class="block px-3 py-2 rounded-md text-base font-medium bg-indigo-700">Sleep Tracker</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-indigo-700">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <h1 class="text-3xl font-bold text-center mb-8 text-indigo-900">Sleep Tracker</h1>
+        
+        <!-- Sleep Log Form -->
+        <section class="mb-16 max-w-4xl mx-auto">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold mb-6 text-indigo-800">Log Your Sleep</h2>
+                <form id="sleep-log-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="sleep-date" class="block text-sm font-medium text-gray-700 mb-1">Date</label>
+                            <input type="date" id="sleep-date" name="sleep-date" class="w-full p-3 border border-gray-300 rounded-md" required>
+                        </div>
+                        <div>
+                            <label for="sleep-time" class="block text-sm font-medium text-gray-700 mb-1">Bedtime</label>
+                            <input type="time" id="sleep-time" name="sleep-time" class="w-full p-3 border border-gray-300 rounded-md" required>
+                        </div>
+                        <div>
+                            <label for="wake-time" class="block text-sm font-medium text-gray-700 mb-1">Wake-up Time</label>
+                            <input type="time" id="wake-time" name="wake-time" class="w-full p-3 border border-gray-300 rounded-md" required>
+                        </div>
+                        <div>
+                            <label for="sleep-quality" class="block text-sm font-medium text-gray-700 mb-1">Sleep Quality (1-10)</label>
+                            <input type="range" id="sleep-quality" name="sleep-quality" min="1" max="10" class="w-full p-3" required>
+                            <div class="flex justify-between text-xs text-gray-500">
+                                <span>Poor</span>
+                                <span id="quality-value">5</span>
+                                <span>Excellent</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="sleep-notes" class="block text-sm font-medium text-gray-700 mb-1">Notes</label>
+                        <textarea id="sleep-notes" name="sleep-notes" rows="3" class="w-full p-3 border border-gray-300 rounded-md" placeholder="Any factors that affected your sleep (stress, caffeine, exercise, etc.)"></textarea>
+                    </div>
+
+                    <div class="flex justify-center">
+                        <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full shadow-lg">
+                            Save Sleep Log
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Sleep Statistics -->
+        <section class="mb-16 max-w-4xl mx-auto">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold mb-6 text-indigo-800">Your Sleep Statistics</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    <div class="bg-indigo-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold text-indigo-800 mb-2">Average Sleep Duration</h3>
+                        <p class="text-3xl font-bold text-indigo-600" id="avg-duration">7.2 hrs</p>
+                    </div>
+                    <div class="bg-indigo-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold text-indigo-800 mb-2">Average Sleep Quality</h3>
+                        <p class="text-3xl font-bold text-indigo-600" id="avg-quality">6.8/10</p>
+                    </div>
+                    <div class="bg-indigo-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold text-indigo-800 mb-2">Consistency Score</h3>
+                        <p class="text-3xl font-bold text-indigo-600" id="consistency">78%</p>
+                    </div>
+                </div>
+                
+                <div class="h-64">
+                    <canvas id="sleep-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sleep History -->
+        <section class="max-w-4xl mx-auto">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold mb-6 text-indigo-800">Sleep History</h2>
+                
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-indigo-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-indigo-800 uppercase tracking-wider">Date</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-indigo-800 uppercase tracking-wider">Bedtime</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-indigo-800 uppercase tracking-wider">Wake-up</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-indigo-800 uppercase tracking-wider">Duration</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-indigo-800 uppercase tracking-wider">Quality</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sleep-history" class="bg-white divide-y divide-gray-200">
+                            <!-- Sleep logs will be inserted here -->
+                            <tr>
+                                <td colspan="5" class="px-6 py-4 text-center text-gray-500">No sleep logs yet. Start tracking your sleep above.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-indigo-900 text-white py-8 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                    <span class="text-xl font-bold">SleepWell</span>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-sm text-indigo-200">© 2025 SleepWell. All rights reserved.</p>
+                    <p class="text-sm text-indigo-300 mt-1">An AI-powered sleep guide for better rest.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

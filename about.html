@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | SleepWell</title>
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="main.js" defer></script>
+</head>
+<body class="bg-slate-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="gradient-bg text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                    <span class="text-xl font-bold">SleepWell</span>
+                </a>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="recommendations.html" class="hover:text-purple-200">Sleep Recommendations</a>
+                <a href="techniques.html" class="hover:text-purple-200">Relaxation Techniques</a>
+                <a href="tracker.html" class="hover:text-purple-200">Sleep Tracker</a>
+                <a href="about.html" class="hover:text-purple-200 font-semibold">About</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="recommendations.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-indigo-700">Sleep Recommendations</a>
+                <a href="techniques.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-indigo-700">Relaxation Techniques</a>
+                <a href="tracker.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-indigo-700">Sleep Tracker</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium bg-indigo-700">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <section class="max-w-4xl mx-auto">
+            <h1 class="text-3xl font-bold text-center mb-8 text-indigo-900">About SleepWell</h1>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-indigo-800">Our Mission</h2>
+                <p class="text-gray-600 mb-4">SleepWell is dedicated to helping people achieve better sleep through personalized, science-backed recommendations and tools. We believe that quality sleep is the foundation of overall health and well-being.</p>
+                <p class="text-gray-600">Our AI-powered platform combines the latest sleep research with machine learning to provide customized advice tailored to your unique sleep patterns and challenges.</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-indigo-800">How It Works</h2>
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 bg-indigo-100 rounded-full p-3 mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-indigo-800 mb-1">Personalized Assessment</h3>
+                            <p class="text-gray-600">Answer questions about your sleep habits, lifestyle, and challenges to create your unique sleep profile.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 bg-indigo-100 rounded-full p-3 mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-indigo-800 mb-1">AI-Powered Recommendations</h3>
+                            <p class="text-gray-600">Our system analyzes your responses and generates customized sleep improvement strategies.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 bg-indigo-100 rounded-full p-3 mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-indigo-800 mb-1">Track Your Progress</h3>
+                            <p class="text-gray-600">Monitor your sleep patterns and quality over time to see what's working and adjust as needed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold mb-4 text-indigo-800">Important Note</h2>
+                <p class="text-gray-600 mb-4">While SleepWell provides science-based sleep recommendations, it is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.</p>
+                <p class="text-gray-600">If you experience chronic insomnia, excessive daytime sleepiness, or other persistent sleep problems, please consult a healthcare professional.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-indigo-900 text-white py-8 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                    <span class="text-xl font-bold">SleepWell</span>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-sm text-indigo-200">© 2025 SleepWell. All rights reserved.</p>
+                    <p class="text-sm text-indigo-300 mt-1">An AI-powered sleep guide for better rest.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
