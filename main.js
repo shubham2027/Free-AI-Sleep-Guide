@@ -399,7 +399,7 @@ function createAIPrompt(userData) {
         ${issuesText}
         ${additionalInfoText}
         
-        Please provide a concise, interactive response (max 400 words) that includes:
+        Please provide a concise, interactive response (max 600 words) that includes:
         1. A personalized bedtime recommendation
         2. One key tip to address their main sleep issue
         3. A quick relaxation technique
